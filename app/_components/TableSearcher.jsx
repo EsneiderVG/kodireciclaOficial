@@ -136,7 +136,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                         </Typography>
 
 
-                        <div className="flex items-center gap-6">
+                        <div className="flex flex-col gap-0 sm:flex-row gap-6 items-center ">
                             <div className="relative h-10 w-full my-4">
                                 <select name="a_status" id="a_status" onChange={handleChangeSelects} className="h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200  focus:border-1  focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
                                     <option className="optionunu" value="1" selected={data.a_status == "lleno" ? (true) : (false)}> lleno</option>
@@ -148,7 +148,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                                     <span className={poppins.className}>Residuos no aprovechables</span>
                                 </label>
                             </div>
-                            <div className="input w-96">
+                            <div className="input w-full sm:w-96">
                                 <Input
                                     type="number"
                                     placeholder="kg de no aprovechables"
@@ -166,7 +166,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
 
 
 
-                        <div className="flex items-center gap-6">
+                        <div className="flex flex-col gap-0 sm:flex-row gap-6 items-center ">
                             <div className="relative h-10 w-full my-4">
                                 <select name="b_status" id="b_status" onChange={handleChangeSelects} className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200  focus:border-1  focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
                                     <option className={poppins.className} value="1" selected={data.b_status == "lleno" ? (true) : (false)}>lleno</option>
@@ -177,7 +177,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                                     <span className={poppins.className}>Organicos aprovechables</span>
                                 </label>
                             </div>
-                            <div className="input w-96">
+                            <div className="input w-full sm:w-96">
                                 <Input
                                     type="number"
                                     placeholder="kg de organicos aprovechables"
@@ -191,7 +191,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-6">
+                        <div className="flex flex-col gap-0 sm:flex-row gap-6 items-center ">
                             <div className="relative h-10 w-full my-4">
                                 <select name="c_status" id="c_status" onChange={handleChangeSelects} className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200  focus:border-1  focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
                                     <option className={poppins.className} value="1" selected={data.c_status == "lleno" ? (true) : (false)}>lleno</option>
@@ -202,7 +202,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                                     <span className={poppins.className}>Residuos reciclables</span>
                                 </label>
                             </div>
-                            <div className="input w-96">
+                            <div className="input w-full sm:w-96">
                                 <Input
                                     type="number"
                                     placeholder="kg de residuos reciclables"
@@ -211,12 +211,12 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                                     labelProps={{
                                         className: "hidden",
                                     }}
-                                    containerProps={{ className: "min-w-[100px]" }} crossOrigin={undefined}
+                                    containerProps={{ className: "min-w-[120px]" }} crossOrigin={undefined}
                                 />
                             </div>
                         </div>
 
-                        <div className="flex items-center ">
+                        <div className="flex items-center mt-4 ">
                             <Button
                                 variant="text"
                                 color="red"

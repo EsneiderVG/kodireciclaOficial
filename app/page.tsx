@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <HeaderLanding />
-      <div className="pt-12" id="nosotros">
+      <div className="pt-12 container mx-auto" id="nosotros">
         <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
           {/* <!--Left Col--> */}
           <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -30,12 +30,12 @@ export default function Home() {
           </div>
           {/* <!--Right Col--> */}
           <div className="w-full md:w-3/5 py-6 text-center">
-            <Image src={LogoImage} className='mx-12' alt={"svg one"} />
+            <Image src={LogoImage} className='px-4 sm:mx-12' alt={"svg one"} />
           </div>
         </div>
       </div>
       <section className="bg-white border-b py-8">
-        <div className='container mx-auto flex flex-wrap gap-8 justify-center pt-4 pb-12'>
+        <div className='container mx-auto flex flex-wrap gap-8 justify-start pt-4 pb-12'>
           <Card className="mt-6 w-96">
             <CardBody>
               <TrashIcon className='w-10 text-blue-400 my-5' />

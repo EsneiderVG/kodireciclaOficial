@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image'
-import ImageScreen from '../(core)/images/infopage_one.svg'
+import ImageScreen from '../(core)/images/screen_qr.png'
 import axios from 'axios';
 import { BrowserQRCodeReader } from '@zxing/library';
 import { Result } from '@zxing/library';
@@ -13,7 +13,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
-import {PAPELERYSMAIN, PAPELERYS, STATUS, USERS} from '@/const/uri'
+import { PAPELERYSMAIN, PAPELERYS, STATUS, USERS } from '@/const/uri'
 
 const QRReaderComponent = () => {
   const [result, setResult] = useState('');
@@ -31,9 +31,10 @@ const QRReaderComponent = () => {
 
   const obtenerIdPapelery = (respuesta) => {
     // let toStrResponse = respuesta.toString();
-    let data = respuesta.substring(36, 43);
-    console.log(data);
-    return data;
+    const parteDelCodigo = respuesta.substring(35, 43);
+    const cadenaTransform = parteDelCodigo.replace(/["']/g, '');
+    // console.log(cadenaTransform);
+    return cadenaTransform;
   }
 
   async function loadPapelerys(id) {
@@ -57,7 +58,8 @@ const QRReaderComponent = () => {
 
 
       let cod_papelery = obtenerIdPapelery(response)
-      console.log(cod_papelery);
+      // console.log(cod_papelery);
+
 
       const responseMainData = await loadPapelerys(cod_papelery);
       setPapeleryMain(responseMainData.data);
@@ -144,7 +146,7 @@ const QRReaderComponent = () => {
 
   console.log(combinedData);
   return (
-    <div className='container mx-auto p-4 px-12'>
+    <div className='container mx-auto p-4 px-6 md:px-12'>
       <div className="flex flex-col xl:flex-row gap-4">
         <div className="escanner relative h-fit">
           <div className="middle-scanner">
@@ -161,9 +163,9 @@ const QRReaderComponent = () => {
 
         {result ? (
           <h1></h1>
-        ): (
+        ) : (
           <h1 className='text-xl'>Dale en escanear para escanear el codigo qr y asi tener informacion!</h1>
-        )} 
+        )}
 
         <div className="valuesObt">
           {combinedData.map((data, index) => (
@@ -172,7 +174,7 @@ const QRReaderComponent = () => {
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   <span>papelera con codigo: <span className='text-blue-400'>{data.cod_litter_bins}</span></span>
                 </Typography>
-                <div className="status w-96">
+                <div className="status w-full sm:w-96">
                   <h1 className='my-2 ml-2 text-black font-medium'>estado de papelera</h1>
                   <Typography>
                     <div className="flex flex-col gap-2 ">
@@ -182,7 +184,7 @@ const QRReaderComponent = () => {
                     </div>
                   </Typography>
                 </div>
-                <div className="registers">
+                <div className="overflow-scroll w-full sm:w-full registers">
                   <h1 className='my-2 ml-2 text-black font-medium'>Ultimos 6 cambios y sub-totales</h1>
                   <Typography>
                     <table className="mt-4 w-full min-w-max table-auto text-left">
@@ -269,8 +271,39 @@ const QRReaderComponent = () => {
                                 <span>{dataContent.created_at}</span>
                               </Typography>
                             </td>
+
+
                           </tr>
                         ))}
+                        <tr>
+                          <td>
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              <span className='text-blue-400 p-3'>{data.contentData.reduce((total, item) => total + parseFloat(item.a_content), 0)} kg</span>
+                            </Typography>
+                          </td>
+                          <td>
+                            <Typography
+                              variant="small"
+                              color="blue-gray"
+                              className="font-normal"
+                            >
+                              <span className='text-blue-400 p-3'>{data.contentData.reduce((total, item) => total + parseFloat(item.b_content), 0)} kg</span>
+                            </Typography>
+                          </td>
+                          <td>
+                            <Typography
+                              variant="small"
+                              color="blue"
+                              className="font-normal"
+                            >
+                              <span className='text-blue-400 p-3'>{data.contentData.reduce((total, item) => total + parseFloat(item.c_content), 0)} kg</span>
+                            </Typography>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </Typography>

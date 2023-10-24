@@ -306,56 +306,60 @@ export default function HeaderLanding() {
     <Fragment>
       <Drawer placement="left" overlay={false} open={openNav} className="mt-14">
         <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-          {/* <div className="mb-2 p-4">
-                        <Typography variant="h5" color="blue-gray">
-                            Copel
-                        </Typography>
-                    </div> */}
           <List>
             <ListItem>
-              <ListItemPrefix>
-                <PresentationChartBarIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Dashboard
+              <div className="flex items-center gap-x-1">
+                <Button
+                  variant="gradient"
+                  size="md"
+                  color="blue"
+                  className="lg:inline-block text-sm p-4"
+                >
+                  <a href="/login" className="font-semibold">Inicia en la aplicacion</a>
+                </Button>
+              </div>
             </ListItem>
             <ListItem>
               <ListItemPrefix>
-                <ShoppingBagIcon className="h-5 w-5" />
+                <InformationCircleIcon className="h-5 w-5 text-blue-400" />
               </ListItemPrefix>
-              E-Commerce
+              <Typography as="div" variant="paragraph" className="">
+                <ListItem
+                  className="flex items-center gap-2 py-2 pr-4 text-gray-900"
+                >
+                  <a href="#nosotros" className="text-lg">Nosotros</a>
+                  <InformationCircleIcon
+                    strokeWidth={1}
+                    color="bg-blue-500	"
+                    className={`hidden h-6 w-6 text-blue-400 transition-transform lg:block`}
+                  />
+                </ListItem>
+              </Typography>
             </ListItem>
             <ListItem>
               <ListItemPrefix>
-                <InboxIcon className="h-5 w-5" />
+                <InformationCircleIcon className="h-5 w-5 text-blue-400" />
               </ListItemPrefix>
-              Inbox
-              <ListItemSuffix>
-                <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-              </ListItemSuffix>
+              <Typography as="div" variant="paragraph" className="">
+                <ListItem
+                  className="flex items-center gap-2 py-2 pr-4 text-gray-900"
+                >
+                  <a href="#escanea" className="text-lg">Escanea</a>
+                  <InformationCircleIcon
+                    strokeWidth={1}
+                    color="bg-blue-500	"
+                    className={`hidden h-6 w-6 text-blue-400 transition-transform lg:block`}
+                  />
+                </ListItem>
+              </Typography>
             </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <UserCircleIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Profile
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <Cog6ToothIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Settings
-            </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <PowerIcon className="h-5 w-5" />
-              </ListItemPrefix>
-              Log Out
-            </ListItem>
+
+
           </List>
         </Card>
       </Drawer>
 
-      <Navbar className="mx-auto w-full px-4 py-2 lg:px-8 lg:py-4 rounded-none max-w-none	">
+      <Navbar className="mx-auto w-full px-4 py-6 lg:px-8 lg:py-4 rounded-none max-w-none	">
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
 
 

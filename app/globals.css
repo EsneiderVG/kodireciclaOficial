@@ -29,3 +29,44 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+.middle-scanner {
+  position: absolute;
+  height: 163px;
+  width: 160px;
+  z-index: 999;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.panoramic-video{
+  width: 360px;
+  height: 270px;
+  object-fit: cover;
+}
+
+@media (max-width: 1140px) {
+  .middle-scanner {
+    z-index: 999;
+    left: 30%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 390px) {
+  .middle-scanner {
+    position: absolute;
+    height: 163px;
+    width: 160px;
+    z-index: 999;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+::placeholder, .optionunu, select option:checked{
+  font-family: poppins;
+}
