@@ -7,6 +7,7 @@ import { Button, Card, CardBody, CardFooter, Dialog, DialogBody, DialogFooter, D
 import QRReaderComponent from '@/app/_components/QrViewer'
 import FooterComponent from '@/app/_components/Footer';
 import { CheckIcon, ClockIcon, TrashIcon } from '@heroicons/react/24/solid';
+import Footer from '@/app/_components/Footer';
 
 export default function Home() {
 
@@ -146,11 +147,11 @@ export default function Home() {
           </Card>
         </div>
       </section>
-      <div id="escanea">
+      <div id="escanea" className='container'>
         <QRReaderComponent />
 
       </div>
-      
+      <Footer />
     </>
   )
 }

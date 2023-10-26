@@ -13,6 +13,7 @@ import {
   Typography
 } from "@material-tailwind/react";
 import React from 'react';
+import {PAPELERYSMAIN, PAPELERYS, STATUS, USERS} from '@/const/uri'
 
 import { verificarValores } from '../../../utils/FunctionsUtils';
 import axios, { AxiosError } from 'axios';
@@ -81,7 +82,7 @@ const PageAdmin = () => {
       }
       setOpen(true)
 
-      const resultRegister = await axios.post("http://localhost:3000/api/users", user)
+      const resultRegister = await axios.post(USERS, user)
 
       console.log(resultRegister);
     

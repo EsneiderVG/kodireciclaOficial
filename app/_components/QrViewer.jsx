@@ -146,7 +146,7 @@ const QRReaderComponent = () => {
 
   console.log(combinedData);
   return (
-    <div className='container mx-auto p-4 px-6 md:px-12'>
+    <div className='container mx-auto p-4 px-6 md:px-0 pl-0'>
       <div className="flex flex-col xl:flex-row gap-4">
         <div className="escanner relative h-fit">
           <div className="middle-scanner">
@@ -169,9 +169,9 @@ const QRReaderComponent = () => {
 
         <div className="valuesObt">
           {combinedData.map((data, index) => (
-            <Card className="w-fit" key={index}>
+            <Card className="w-full" key={index}>
               <CardBody>
-                <Typography variant="h5" color="blue-gray" className="mb-2">
+                <Typography variant="h5" color="blue-gray" className="mb-4">
                   <span>papelera con codigo: <span className='text-blue-400'>{data.cod_litter_bins}</span></span>
                 </Typography>
                 <div className="status w-full sm:w-96">
@@ -185,7 +185,7 @@ const QRReaderComponent = () => {
                   </Typography>
                 </div>
                 <div className="overflow-scroll w-full sm:w-full registers">
-                  <h1 className='my-2 ml-2 text-black font-medium'>Ultimos 6 cambios y sub-totales</h1>
+                  <h1 className='my-4 ml-2 text-black font-medium'>Ultimos 6 cambios y sub-totales</h1>
                   <Typography>
                     <table className="mt-4 w-full min-w-max table-auto text-left">
                       <thead>
@@ -308,14 +308,8 @@ const QRReaderComponent = () => {
                     </table>
                   </Typography>
                 </div>
-
-
-
-
               </CardBody>
-              <CardFooter className="pt-0">
-                <Button>Read More</Button>
-              </CardFooter>
+
             </Card>
 
           ))}
