@@ -144,9 +144,9 @@ const QRReaderComponent = () => {
   //       ? "p-4"
   //       : "";
 
-  console.log(combinedData);
+  // console.log(combinedData);
   return (
-    <div className='container mx-auto p-4 px-6 md:px-0'>
+    <div className='container mx-auto p-4 px-6 md:px-0 text-black'>
       <div className="flex flex-col xl:flex-row gap-4">
         <div className="escanner relative h-fit">
           <div className="middle-scanner">

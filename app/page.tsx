@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <HeaderLanding />
-      <div className="pt-12 container mx-auto" id="nosotros">
+      <div className="pt-12 container mx-auto text-black" id="nosotros">
         <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
           {/* <!--Left Col--> */}
           <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
