@@ -1,10 +1,11 @@
+'use client'
 import { Typography } from "@material-tailwind/react";
 
 export default function FooterComponent() {
     return (
         <footer className="w-full p-8 mt-12">
             <div className="flex flex-row container flex-wrap bg-white items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-                <div className="flex items-center ">
+                <div className="flex items-center flex-row sm:flex-col text-black">
                     <img
                         alt="Flowbite React Logo"
                         className="mr-3 h-6 sm:h-9"

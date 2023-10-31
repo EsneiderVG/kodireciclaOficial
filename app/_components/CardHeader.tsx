@@ -21,16 +21,8 @@ const poppins = Poppins({
 
 const TABS = [
     {
-        label: "Aprovechables",
+        label: "Actualiza las papeleras y ten contabilidad",
         value: "todas",
-    },
-    {
-        label: "No_aprovechables",
-        value: "peligrosos",
-    },
-    {
-        label: "Reciclaje",
-        value: "reciclaje",
     },
 ];
 
@@ -69,7 +61,7 @@ function CardHeaderComponent({enviarDatos}:any) {
     return (
         <>
         <CardHeader floated={false} shadow={false} className="rounded-none">
-            <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-8">
+            <div className="mb-8 flex flex-col sm:flex-row items-center justify-between gap-8 w-full">
                 <div>
                     <Typography variant="h5" color="blue-gray" className={poppins.className}>
                         Papeleras Registradas
@@ -78,8 +70,8 @@ function CardHeaderComponent({enviarDatos}:any) {
                         mira toda la informacion acerca de estas papeleras
                     </Typography>
                 </div>
-                <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
-                    <Button onClick={cleanFilters} variant="outlined" size="sm" className='w-40	 md:w-fit'>
+                <div className="flex shrink-0 flex-col gap-2 sm:flex-row w-full sm:w-fit">
+                    <Button onClick={cleanFilters} variant="outlined" size="sm" className='w-40	md:w-fit w-full sm:w-fit'>
                         <span className='font-semibold'>view all</span>
                     </Button>
                 </div>
@@ -103,7 +95,7 @@ function CardHeaderComponent({enviarDatos}:any) {
                         id="searcher"
                         name='searcher'
                     />
-                    <Button type='submit' className="text-sm text-center px-4 pr-4">
+                    <Button type='submit' className="text-sm text-center px-4 pr-4 w-full sm:w-fit">
                         <span className={poppins.className}>Filtrar</span>
                     </Button>
                 </form>

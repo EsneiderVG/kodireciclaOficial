@@ -1,19 +1,17 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image'
-import ImageScreen from '../(core)/images/screen_qr.png'
-import axios from 'axios';
-import { BrowserQRCodeReader } from '@zxing/library';
-import { Result } from '@zxing/library';
+import { PAPELERYS, PAPELERYSMAIN, STATUS, USERS } from '@/const/uri';
+import { CheckCircleIcon } from '@heroicons/react/24/outline';
 import {
+  Button,
   Card,
   CardBody,
-  CardFooter,
-  Typography,
-  Button,
+  Typography
 } from "@material-tailwind/react";
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
-import { PAPELERYSMAIN, PAPELERYS, STATUS, USERS } from '@/const/uri'
+import { BrowserQRCodeReader } from '@zxing/library';
+import axios from 'axios';
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import ImageScreen from '../(core)/images/screen_qr.png';
 
 const QRReaderComponent = () => {
   const [result, setResult] = useState('');
@@ -152,7 +150,7 @@ const QRReaderComponent = () => {
           <div className="middle-scanner">
             <Image src={ImageScreen} alt={'imagen de screen selectr'} />
           </div>
-          <video className='panoramic-video' style={{ border: '1px solid black', transform: 'scaleX(-1)' }} ref={videoRef} />
+          <video className='panoramic-video' style={{ border: '1px solid black' }} ref={videoRef} />
           <Button className='mt-4 mr-4 bg-blue-400' fullWidth onClick={startScan} disabled={!isLoaded || isRunning}>
             <span className='text-base'>Escanear</span>
           </Button>

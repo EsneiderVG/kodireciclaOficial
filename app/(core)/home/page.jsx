@@ -1,34 +1,22 @@
 'use client'
-import React from 'react'
-import { useState, useEffect } from 'react';
+import CardHeaderComponent from '@/app/_components/CardHeader';
+import TableSearcher from '@/app/_components/TableSearcher';
+import { PAPELERYS, PAPELERYSMAIN, STATUS, USERS } from '@/const/uri';
 import axios from 'axios';
-import { Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google';
+import React, { useEffect, useState } from 'react';
 const poppins = Poppins({
   weight: '400',
   subsets: ['latin'],
 })
-import TableSearcher from '@/app/_components/TableSearcher';
-import CardHeaderComponent from '@/app/_components/CardHeader';
-import {PAPELERYSMAIN, PAPELERYS, STATUS, USERS} from '@/const/uri'
+
 
 import {
   Card,
-  CardHeader,
-  Input,
-  Typography,
-  Button,
   CardBody,
-  Chip,
-  CardFooter,
-  Tabs,
-  TabsHeader,
-  Tab,
-  Avatar,
-  IconButton,
-  Tooltip,
+  Typography
 } from "@material-tailwind/react";
-
-const TABLE_HEAD = ["codigo de las papeleras", "Organicos aprovechables", "Residuos no aprovechables", "Residuos Aprovechables", "kg reciclaje", "actualizado por", "fecha actualizacion", ""];
+const TABLE_HEAD = ["codigo de las papeleras", "Organicos aprovechables", "Residuos no aprovechables", "Reciclaje", "kg reciclaje", "actualizado por", "fecha actualizacion", ""];
 
 
 async function loadPapelerys() {
@@ -112,7 +100,6 @@ function Page() {
       return true;
     }
     var responseFilter = dataPapeleryMainFil.filter(item => item.cod_litter_bins.includes(datos));
-    console.log(responseFilter.length);
     if (responseFilter.length > 0) {
       setMessages("")
       setPapeleryMain(responseFilter)
@@ -141,7 +128,7 @@ function Page() {
           return response.json(); // Parsear la respuesta JSON
         })
         .then(data => {
-          console.log('Datos recibidos:', data);
+          // console.log('Datos recibidos:', data);
           setUsers(data)
           // Realizar acciones con los datos aquí
         })
@@ -179,8 +166,8 @@ function Page() {
       {/* {messages} */}
       <CardBody className="overflow-scroll px-0">
         <table className="mt-4 w-full  table-auto text-left">
-          <thead>
-            <tr>
+          <thead className="whitespace-nowrap">
+            <tr >
               {TABLE_HEAD.map((head) => (
                 <th
                   key={head}
@@ -206,19 +193,6 @@ function Page() {
 
         </table>
       </CardBody>
-      {/* <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
-        <Typography variant="small" color="blue-gray" className={poppins.className}>
-          Page 1 of 10
-        </Typography>
-        <div className="flex gap-2">
-          <Button variant="outlined" size="sm" className={poppins.className}>
-            Previous
-          </Button>
-          <Button variant="outlined" size="sm" className={poppins.className}>
-            Next
-          </Button>
-        </div>
-      </CardFooter> */}
     </Card>
   )
 }

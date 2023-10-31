@@ -23,6 +23,7 @@ export async function GET() {
 
 export async function POST(request){
     const {cod_litter_bins, created_at, updated_at} = await request.json();
+    console.log(cod_litter_bins)
     await conn.query("INSERT INTO litter_bins_main SET ?", {
         cod_litter_bins: cod_litter_bins,
         created_at: created_at,

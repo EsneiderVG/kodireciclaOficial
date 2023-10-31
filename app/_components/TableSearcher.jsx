@@ -104,10 +104,10 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
         
 
 
+        const resultInsertNewData = await axios.post("/api/papelerys", litterbins_content)
         const resultUpdated = await axios.put("/api/papelerysmain/" + data.id, litterbins_main)
 
         
-        const resultInsertNewData = await axios.post("/api/papelerys", litterbins_content)
         // console.log(resultUpdated);
         // console.log(resultInsertNewData);
         // console.log(litterbins_content);
@@ -117,7 +117,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
 
         if (resultUpdated?.status == 200 && resultInsertNewData.status == 200) {
 
-            console.log(resultUpdated.data);
+            // console.log(resultUpdated.data);
             if (resultUpdated !== null) {
                 enviarDatosUpdate(200)
                 handleClose();
@@ -125,18 +125,19 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
             }
         }
     }
-    // console.log(messages);
+    // console.log(data);
     return (
         <Fragment>
             <Dialog className="bg-transparent shadow-none" size="md" open={open} handler={handleOpen}>
                 <Card className="mx-auto w-full p-8">
                     <form action="" method="post" onSubmit={handlerSubmit}>
-                        <Typography variant="h4">
+                        <Typography variant="h4" className="text-center">
                             <h1 className={poppins.className}>Actualiza la papelera</h1>
+                            <span className="text-blue-400">{data.cod_litter_bins}</span>
                         </Typography>
 
 
-                        <div className="flex flex-col gap-0 sm:flex-row gap-6 items-center ">
+                        <div className="flex flex-col sm:flex-row items-center gap-0 sm:gap-6 py-4 sm:py-0" >
                             <div className="relative h-10 w-full my-4">
                                 <select name="a_status" id="a_status" onChange={handleChangeSelects} className="h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200  focus:border-1  focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
                                     <option className="optionunu" value="1" selected={data.a_status == "lleno" ? (true) : (false)}> lleno</option>
@@ -151,7 +152,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                             <div className="input w-full sm:w-96">
                                 <Input
                                     type="number"
-                                    placeholder="kg de no aprovechables"
+                                    placeholder="kg de organicos no aprovechables"
                                     name="a_content"
                                     className="!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                                     labelProps={{
@@ -166,7 +167,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
 
 
 
-                        <div className="flex flex-col gap-0 sm:flex-row gap-6 items-center ">
+                        <div className="flex flex-col sm:flex-row items-center gap-0 sm:gap-6 py-4 sm:py-0">
                             <div className="relative h-10 w-full my-4">
                                 <select name="b_status" id="b_status" onChange={handleChangeSelects} className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200  focus:border-1  focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
                                     <option className={poppins.className} value="1" selected={data.b_status == "lleno" ? (true) : (false)}>lleno</option>
@@ -191,7 +192,7 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-0 sm:flex-row gap-6 items-center ">
+                        <div className="flex flex-col sm:flex-row items-center gap-0 sm:gap-6  py-4 sm:py-0">
                             <div className="relative h-10 w-full my-4">
                                 <select name="c_status" id="c_status" onChange={handleChangeSelects} className="peer h-full w-full rounded-[7px] border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-2.5 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200  focus:border-1  focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50">
                                     <option className={poppins.className} value="1" selected={data.c_status == "lleno" ? (true) : (false)}>lleno</option>
@@ -219,14 +220,14 @@ export default function TableSearcher({ data, index, lengCombine, messages, envi
                         <div className="flex items-center mt-4 ">
                             <Button
                                 variant="text"
-                                color="red"
+                                color="rose"
                                 onClick={handleOpen}
-                                className="mr-1 border-2 border-rose-500"
+                                className="mr-1 border-2 text-gray-500"
                                 fullWidth
                             >
                                 <span className={poppins.className}>Cancel</span>
                             </Button>
-                            <Button disabled={buttonSubmit ? (true) : (false)} type="submit" variant="gradient" className="text-sm text-center px-4 pr-4" onClick={handleOpen} fullWidth>
+                            <Button disabled={buttonSubmit ? (true) : (false)} type="submit" className="text-sm text-center px-4 pr-4 bg-blue-400" onClick={handleOpen} fullWidth>
                                 <span className={poppins.className}>Confirm</span>
                             </Button>
                         </div>

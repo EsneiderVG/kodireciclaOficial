@@ -49,13 +49,27 @@ body {
 @media (max-width: 1140px) {
   .middle-scanner {
     z-index: 999;
-    left: 30%;
+    left: 22%;
     top: 35%;
     transform: translate(-50%, -50%);
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 910px) {
+  .middle-scanner {
+    left: 28%;
+    top: 35%;
+  }
+}
+
+@media (max-width: 720px) {
+  .middle-scanner {
+    left: 42%;
+    top: 35%;
+  }
+}
+
+@media (max-width: 460px) {
   .middle-scanner {
     position: absolute;
     height: 163px;

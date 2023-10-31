@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderBar from '@/app/_components/Navbar';
 import HeaderOpenNavBar from '@/app/_components/HeaderOpenNav';
-
+import Footer from '@/app/_components/Footer';
 
 function layout({
     children,
@@ -17,6 +17,7 @@ function layout({
                     {children}
                 </main>
             </div>
+                <Footer />
         </div>
     );
 }
